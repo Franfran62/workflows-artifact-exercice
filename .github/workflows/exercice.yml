@@ -25,7 +25,7 @@ jobs:
     second_job: 
         needs: first_job
         name: second job on push
-        runs-on: ubuntu-latest`
+        runs-on: ubuntu-latest
         steps: 
             - name: Get the artifact !
               uses: actions/download-artifact@v4
