@@ -36,6 +36,13 @@ jobs:
               run: |
                 cd dist
                 ls
+            - name: Pousser dans une branche deploy
+              run: |
+                git branch -M deploy
+                git add ./dist/*
+                git commit -m "Push on deploy from workflow"
+                git push -u origin deploy
+                 
         
 
 
