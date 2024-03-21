@@ -36,14 +36,15 @@ jobs:
               run: |
                 cd dist
                 ls
-            - name: Pousser dans une branche deploy
-              run: |
-                git branch -M deploy
-                git add ./dist/*
-                git commit -m "Push on deploy from workflow"
-                git push -u origin deploy
-                 
-        
+            - name: Run the Action
+              uses: devops-infra/action-commit-push@master
+              with:
+                github_token: "${{ secrets.GITHUB_TOKEN }}"
+                add_timestamp: true
+                commit_prefix: "[AUTO]"
+                commit_message: "Automatic commit"
+                force: false
+                target_branch: deploy
 
 
         
